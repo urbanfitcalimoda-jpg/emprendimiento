@@ -1,0 +1,346 @@
+/* Variables para facilitar cambios de color */
+:root {
+    --color-primario: #34495e;   /* Azul Oscuro Elegante (Texto Principal) */
+    --color-secundario: #2c3e50; /* Azul más oscuro (Fondo NavBar/Footer) */
+    --color-acento: #e74c3c;     /* Rojo/Coral para destacar (Básicos y Botones) */
+    --color-precio: #27ae60;     /* Verde para precios */
+    --color-fondo: #ecf0f1;      /* Gris muy claro */
+    --color-card-fondo: #ffffff;
+    --color-texto-claro: #f4f7f6;
+}
+
+/* Estilos Generales y Tipografía */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--color-fondo);
+    color: var(--color-primario);
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* --- NAV BAR (PROFESIONAL) --- */
+.navbar {
+    background-color: var(--color-secundario);
+    color: var(--color-texto-claro);
+    padding: 15px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    position: sticky; 
+    top: 0;
+    z-index: 1000;
+}
+.nav-brand {
+    font-size: 1.8em;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: var(--color-acento);
+}
+.nav-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+.nav-links li {
+    margin-left: 30px;
+}
+.nav-links a {
+    color: var(--color-texto-claro);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1em;
+    padding: 5px 0;
+    transition: color 0.3s;
+    border-bottom: 2px solid transparent; 
+}
+.nav-links a:hover {
+    color: var(--color-acento);
+    border-bottom: 2px solid var(--color-acento);
+}
+/* ------------------------------- */
+
+
+/* Contenedor Principal */
+.catalogo-container {
+    max-width: 1200px;
+    margin: 30px auto; 
+    background-color: var(--color-card-fondo);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    padding: 50px;
+}
+
+/* Encabezado */
+header {
+    text-align: center;
+    margin-bottom: 60px;
+    padding-bottom: 25px;
+    border-bottom: 4px solid var(--color-acento);
+}
+header h1 {
+    font-size: 3em;
+    color: var(--color-primario);
+    font-weight: 700;
+    margin: 0;
+    letter-spacing: 2px;
+}
+header p {
+    font-size: 1.1em;
+    color: #7f8c8d;
+    font-weight: 300;
+    margin-top: 10px;
+}
+
+/* Secciones */
+.seccion {
+    margin-bottom: 70px;
+    padding-top: 50px; 
+}
+.seccion h2 {
+    font-size: 2.2em;
+    color: var(--color-acento);
+    text-align: center;
+    margin-bottom: 35px;
+    padding-bottom: 10px;
+    position: relative;
+    animation: fadeInSlide 0.8s forwards; 
+}
+/* Separador de secciones Hombre/Mujer */
+.catalogo-container hr {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), var(--color-primario), rgba(0, 0, 0, 0));
+    margin: 60px 0;
+}
+
+/* Keyframes para una animación de carga profesional */
+@keyframes fadeInSlide {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.seccion h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: var(--color-acento);
+    margin: 10px auto 0;
+}
+
+/* Contenedor de Productos (Grid) */
+.productos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 35px;
+}
+
+/* Tarjeta de Producto */
+.producto-card {
+    background-color: var(--color-card-fondo);
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    padding: 25px;
+    transition: all 0.4s ease;
+    border: 1px solid #e0e0e0;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; 
+}
+.producto-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    border-color: var(--color-acento);
+}
+
+/* --- ESTILOS PARA LA IMAGEN --- */
+.producto-imagen {
+    width: calc(100% + 50px);
+    height: 300px;
+    object-fit: cover;
+    margin: -25px 0 15px -25px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px 10px 0 0; 
+    transition: transform 0.4s ease; 
+}
+.producto-card:hover .producto-imagen {
+    transform: scale(1.05); 
+}
+/* ---------------------------------- */
+
+.producto-card h3 {
+    font-size: 1.5em;
+    color: var(--color-primario);
+    margin-top: 0;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+.producto-card .descripcion {
+    font-style: italic;
+    font-size: 0.9em;
+    color: #555;
+    margin-bottom: 10px;
+}
+.producto-card .especificaciones {
+    font-size: 0.95em;
+    margin-bottom: 15px;
+    flex-grow: 1; 
+}
+.precio {
+    font-size: 1.8em;
+    color: var(--color-precio);
+    font-weight: 700;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    display: block;
+}
+
+/* Botón de Acción */
+.btn-comprar {
+    background-color: var(--color-acento);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 600;
+    transition: background-color 0.3s, transform 0.2s;
+    text-transform: uppercase;
+    align-self: flex-start;
+}
+.btn-comprar:hover {
+    background-color: #c0392b; 
+    transform: scale(1.02);
+}
+.btn-comprar i {
+    margin-left: 8px; 
+}
+
+
+/* --- PIE DE PÁGINA (PROFESIONAL) --- */
+.main-footer {
+    background-color: var(--color-secundario);
+    color: var(--color-texto-claro);
+    padding: 40px 0 0;
+}
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px 30px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap; 
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.footer-section {
+    flex: 1;
+    min-width: 250px;
+    margin-bottom: 20px;
+}
+.footer-section h3 {
+    font-size: 1.3em;
+    color: var(--color-acento);
+    border-bottom: 2px solid var(--color-acento);
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+}
+/* Estilo específico para las promociones */
+.oferta-container {
+    background-color: #3b5067; /* Un tono más oscuro del primario para destacarse */
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px dashed var(--color-acento); /* Borde punteado para promo */
+    transition: background-color 0.3s;
+}
+.oferta-container h3 {
+    color: #ffcc00; /* Amarillo para llamar la atención en Promociones */
+    border-bottom: 2px solid #ffcc00;
+}
+.oferta-container strong {
+    color: var(--color-texto-claro);
+}
+
+.footer-section p, .footer-section a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    margin-bottom: 8px;
+    display: block;
+}
+.footer-section a:hover {
+    color: var(--color-acento);
+}
+.footer-section i {
+    margin-right: 10px;
+}
+.social-media .social-icon {
+    display: inline-block;
+    font-size: 1.5em;
+    margin-right: 15px;
+    transition: color 0.3s;
+}
+.social-media .social-icon:hover {
+    color: var(--color-acento);
+    transform: scale(1.1);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding: 15px 0;
+    font-size: 0.9em;
+    background-color: #1f2a36; 
+}
+/* -------------------------------------- */
+
+
+/* Media Queries para Responsividad */
+@media (max-width: 900px) {
+    .catalogo-container {
+        padding: 30px 20px;
+    }
+    .navbar {
+        padding: 10px 20px;
+    }
+    .nav-links li {
+        margin-left: 20px;
+    }
+    .footer-content {
+        padding: 0 20px 30px;
+    }
+}
+@media (max-width: 650px) {
+    body {
+        padding-top: 0;
+    }
+    .navbar {
+        flex-direction: column; 
+        align-items: flex-start;
+    }
+    .nav-links {
+        margin-top: 10px;
+        flex-direction: column; 
+        width: 100%;
+    }
+    .nav-links li {
+        margin: 5px 0;
+        width: 100%;
+        text-align: center;
+    }
+    .catalogo-container {
+        padding: 20px 15px;
+        margin-top: 15px;
+    }
+    .producto-imagen {
+        height: 200px; 
+    }
+    .footer-section {
+        min-width: 100%; 
+    }
+}
